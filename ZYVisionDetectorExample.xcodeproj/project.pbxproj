@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,11 +13,12 @@
 		1A8A122026AEB81C0035868F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A121E26AEB81C0035868F /* Main.storyboard */; };
 		1A8A122226AEB81F0035868F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A122126AEB81F0035868F /* Assets.xcassets */; };
 		1A8A122526AEB81F0035868F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A122326AEB81F0035868F /* LaunchScreen.storyboard */; };
+		1A8A123A26AFFD9F0035868F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A123926AFFD9F0035868F /* CameraViewController.swift */; };
 		272E13DD1845B02E43704A47 /* Pods_ZYVisionDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49794DC55DB61BDB086E75DA /* Pods_ZYVisionDetector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A8A121526AEB81C0035868F /* ZYVisionDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYVisionDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A8A121526AEB81C0035868F /* ZYVisionDetectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYVisionDetectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8A121826AEB81C0035868F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A8A121A26AEB81C0035868F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1A8A121C26AEB81C0035868F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +26,7 @@
 		1A8A122126AEB81F0035868F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A8A122426AEB81F0035868F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A8A122626AEB81F0035868F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A8A123926AFFD9F0035868F /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		49794DC55DB61BDB086E75DA /* Pods_ZYVisionDetector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZYVisionDetector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76806450BB02A1F20E396EF3 /* Pods-ZYVisionDetector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYVisionDetector.debug.xcconfig"; path = "Target Support Files/Pods-ZYVisionDetector/Pods-ZYVisionDetector.debug.xcconfig"; sourceTree = "<group>"; };
 		B8171458D24CD6FCA154558E /* Pods-ZYVisionDetector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYVisionDetector.release.xcconfig"; path = "Target Support Files/Pods-ZYVisionDetector/Pods-ZYVisionDetector.release.xcconfig"; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		1A8A121626AEB81C0035868F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A8A121526AEB81C0035868F /* ZYVisionDetector.app */,
+				1A8A121526AEB81C0035868F /* ZYVisionDetectorExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +68,7 @@
 				1A8A121826AEB81C0035868F /* AppDelegate.swift */,
 				1A8A121A26AEB81C0035868F /* SceneDelegate.swift */,
 				1A8A121C26AEB81C0035868F /* ViewController.swift */,
+				1A8A123926AFFD9F0035868F /* CameraViewController.swift */,
 				1A8A121E26AEB81C0035868F /* Main.storyboard */,
 				1A8A122126AEB81F0035868F /* Assets.xcassets */,
 				1A8A122326AEB81F0035868F /* LaunchScreen.storyboard */,
@@ -80,7 +83,6 @@
 				76806450BB02A1F20E396EF3 /* Pods-ZYVisionDetector.debug.xcconfig */,
 				B8171458D24CD6FCA154558E /* Pods-ZYVisionDetector.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -95,22 +97,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A8A121426AEB81C0035868F /* ZYVisionDetector */ = {
+		1A8A121426AEB81C0035868F /* ZYVisionDetectorExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A8A122926AEB81F0035868F /* Build configuration list for PBXNativeTarget "ZYVisionDetector" */;
+			buildConfigurationList = 1A8A122926AEB81F0035868F /* Build configuration list for PBXNativeTarget "ZYVisionDetectorExample" */;
 			buildPhases = (
 				51F8867EFF8465BFDFA701F3 /* [CP] Check Pods Manifest.lock */,
 				1A8A121126AEB81C0035868F /* Sources */,
 				1A8A121226AEB81C0035868F /* Frameworks */,
 				1A8A121326AEB81C0035868F /* Resources */,
+				3CA9C8798B41F14C0475F175 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ZYVisionDetector;
+			name = ZYVisionDetectorExample;
 			productName = ZYVisionDetector;
-			productReference = 1A8A121526AEB81C0035868F /* ZYVisionDetector.app */;
+			productReference = 1A8A121526AEB81C0035868F /* ZYVisionDetectorExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +130,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1A8A121026AEB81C0035868F /* Build configuration list for PBXProject "ZYVisionDetector" */;
+			buildConfigurationList = 1A8A121026AEB81C0035868F /* Build configuration list for PBXProject "ZYVisionDetectorExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -140,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1A8A121426AEB81C0035868F /* ZYVisionDetector */,
+				1A8A121426AEB81C0035868F /* ZYVisionDetectorExample */,
 			);
 		};
 /* End PBXProject section */
@@ -159,6 +162,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3CA9C8798B41F14C0475F175 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZYVisionDetector/Pods-ZYVisionDetector-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZYVisionDetector/Pods-ZYVisionDetector-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZYVisionDetector/Pods-ZYVisionDetector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		51F8867EFF8465BFDFA701F3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8A121D26AEB81C0035868F /* ViewController.swift in Sources */,
+				1A8A123A26AFFD9F0035868F /* CameraViewController.swift in Sources */,
 				1A8A121926AEB81C0035868F /* AppDelegate.swift in Sources */,
 				1A8A121B26AEB81C0035868F /* SceneDelegate.swift in Sources */,
 			);
@@ -339,7 +360,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ4WQU9362;
 				INFOPLIST_FILE = ZYVisionDetector/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -347,7 +370,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nigo.ZYVisionDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,7 +381,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ4WQU9362;
 				INFOPLIST_FILE = ZYVisionDetector/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,14 +391,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nigo.ZYVisionDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A8A121026AEB81C0035868F /* Build configuration list for PBXProject "ZYVisionDetector" */ = {
+		1A8A121026AEB81C0035868F /* Build configuration list for PBXProject "ZYVisionDetectorExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A8A122726AEB81F0035868F /* Debug */,
@@ -382,7 +407,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A8A122926AEB81F0035868F /* Build configuration list for PBXNativeTarget "ZYVisionDetector" */ = {
+		1A8A122926AEB81F0035868F /* Build configuration list for PBXNativeTarget "ZYVisionDetectorExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A8A122A26AEB81F0035868F /* Debug */,

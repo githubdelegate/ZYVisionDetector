@@ -11,9 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
     }
-
-
+    
+    @IBAction func scan(_ sender: Any) {
+        let vc = CameraViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
