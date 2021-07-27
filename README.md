@@ -1,6 +1,7 @@
 # ZYVisionDetector
 
 `ZYVisionDetector` can help you to record video and detect retangles in your video. 
+能帮助你实现自动识别视频中矩形区域并高亮
 
 ![sample](https://github.com/githubdelegate/ZYVisionDetector/blob/master/sample.gif)
 
