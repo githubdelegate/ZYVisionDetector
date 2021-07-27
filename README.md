@@ -2,7 +2,7 @@
 
 `ZYVisionDetector` can help you to record video and detect retangles in your video. 
 
-[sample](https://github.com/githubdelegate/ZYVisionDetector/blob/master/sample.gif)
+![sample](https://github.com/githubdelegate/ZYVisionDetector/blob/master/sample.gif)
 
 
 ## Install 
