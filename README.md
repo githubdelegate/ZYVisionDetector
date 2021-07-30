@@ -8,8 +8,12 @@
 
 ## Install 
 
+* Cocoapods
 `pod ZYVisionDetector`
 
+* SPM
+
+` `
 
 
 ## Usage
