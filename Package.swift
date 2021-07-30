@@ -11,7 +11,7 @@ let package = Package(
         .target(
             name: "ZYVisionDetector",
             path: "Source",
-            exclude: ["Pods", "ZYVisionDetector", "Podfile", "sample.gif", "ZYVisionDetector.podspec"]
+            exclude: ["Pods", "ZYVisionDetector/", "Podfile", "sample.gif", "ZYVisionDetector.podspec"]
         )
     ]
 )
