@@ -28,8 +28,12 @@ public protocol ZYVisionDetectorVideoRecorder:  AVCaptureVideoDataOutputSampleBu
     var zyvision_previewLayer: AVCaptureVideoPreviewLayer! { get set }
     
     
-    /// 展示view
+    /// 展示view, 基本等于全屏view
     var zyvision_previewView: UIView! { get }
+    
+    
+    /// 可见view 意思是 有的界面不是全屏显示录像的，而是只显示一部分
+    var  zyvision_visibleView: UIView! { get }
     
     
     /// 设置session
@@ -42,11 +46,29 @@ public protocol ZYVisionDetectorVideoRecorder:  AVCaptureVideoDataOutputSampleBu
     
     /// 关闭session
     func zyvision_endSession()
+    
+    
+    /// 设置session 完成
+    func zyvision_setupSessionDone()
+    
+    /// 开始设置session
+    func zyvision_setupSessionBegin()
 }
 
 public extension ZYVisionDetectorVideoRecorder {
     
+    func zyvision_setupSessionDone() {
+        
+    }
+    
+    func zyvision_setupSessionBegin() {
+        
+    }
+    
     func zyvision_setupSession() {
+        
+        self.zyvision_setupSessionBegin()
+        
         if self.zyvision_session != nil {
             return
         }
@@ -96,8 +118,9 @@ public extension ZYVisionDetectorVideoRecorder {
 //        self.previewView.layer.insertSublayer(self.previewLayer)
         self.zyvision_previewView.layer.addSublayer(self.zyvision_previewLayer)
         
+        
         self.zyvision_rectangleShapeLayer = CAShapeLayer()
-        self.zyvision_rectangleShapeLayer.frame = self.zyvision_previewLayer.bounds
+        self.zyvision_rectangleShapeLayer.frame = self.zyvision_visibleView.frame
         self.zyvision_rectangleShapeLayer.isHidden = true
 //        self.rectangleShapeLayer.backgroundColor = UIColor.red.cgColor
         self.zyvision_rectangleShapeLayer.strokeColor = UIColor.red.cgColor
@@ -105,6 +128,8 @@ public extension ZYVisionDetectorVideoRecorder {
         self.zyvision_rectangleShapeLayer.fillColor = CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
         self.zyvision_rectangleShapeLayer.name = "rectangle"
         self.zyvision_previewView.layer.addSublayer(self.zyvision_rectangleShapeLayer)
+                
+        self.zyvision_setupSessionDone()
     }
     
     func zyvision_beginSession() {
