@@ -54,54 +54,6 @@ public extension ZYVisionCameraCustomFocus {
         self.tmpzoom = 0
         self.videozoom = 0
     }
-    
-//    func handlePinchGes(ges: UIPinchGestureRecognizer) {
-//        if ges.state == .began {
-//            self.tmpZoom = self.videozoom
-//        }else if ges.state == .ended {
-//            var newzoom = self.tmpZoom * ges.scale
-//            if newzoom < self.minZoom {
-//                newzoom = self.minZoom
-//            }
-//
-//            if newzoom > self.maxZoom {
-//                newzoom = self.maxZoom
-//            }
-//            self.videozoom = newzoom
-//        } else if ges.state == .changed {
-//            var newzoom = self.tmpZoom * ges.scale
-//            print(" zoom = \(ges.scale) =\(newzoom) ")
-//            if newzoom < self.minZoom {
-//                newzoom = self.minZoom
-//            }
-//
-//            if newzoom > self.maxZoom {
-//                newzoom = self.maxZoom
-//            }
-//
-//            print(" after zoom = \(ges.scale) =\(newzoom) ")
-//            try? self.zyvision_device.lockForConfiguration()
-//            self.zyvision_device.videoZoomFactor = newzoom
-//            self.zyvision_device.unlockForConfiguration()
-//
-//        }
-//    }
-    
-//    @objc func handleTapGes(tag: UITapGestureRecognizer) {
-//        if tag.state == .ended {
-//            let point = tag.location(in: self.view)
-//
-//            self.view.addSubview(self.focusView)
-//            self.focusView.showInCenter(point: point)
-//
-//            try? self.zyvision_device.lockForConfiguration()
-//            self.zyvision_device.focusPointOfInterest = point
-//            self.zyvision_device.focusMode = .autoFocus
-////            self.zyvision_device.exposurePointOfInterest = point
-////            self.zyvision_device.exposureMode = .autoExpose
-//            self.zyvision_device.unlockForConfiguration()
-//        }
-//    }
 }
 
 public class ZYVisionCameraFocusView: UIView {

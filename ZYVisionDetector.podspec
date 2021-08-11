@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZYVisionDetector"
-  spec.version      = "1.1.0"
+  spec.version      = "1.1.1"
   spec.summary      = "ZYVisionDetector is a simple camera recorder and use Vision framework to detect retangle in video"
 
   # This description is used to generate tags and improve search results.
