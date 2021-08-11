@@ -10,7 +10,7 @@ import AVFoundation
 import UIKit
 
 /// 视频录制协议
-public protocol ZYVisionDetectorVideoRecorder:  AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate {
+public protocol ZYVisionDetectorVideoRecorder: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate, ZYVisionCameraCustomFocus {
     
     var zyvision_session: AVCaptureSession! { get set }
     
@@ -128,8 +128,19 @@ public extension ZYVisionDetectorVideoRecorder {
         self.zyvision_rectangleShapeLayer.fillColor = CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
         self.zyvision_rectangleShapeLayer.name = "rectangle"
         self.zyvision_previewView.layer.addSublayer(self.zyvision_rectangleShapeLayer)
-                
+  
+//        self.preViewimageView.isUserInteractionEnabled = true
+        self.zyvision_setupFocusView()
+        
         self.zyvision_setupSessionDone()
+    }
+    
+    var minZoom: CGFloat {
+        return self.zyvision_device.minAvailableVideoZoomFactor
+    }
+    
+    var maxZoom: CGFloat {
+        return self.zyvision_device.maxAvailableVideoZoomFactor
     }
     
     func zyvision_beginSession() {
@@ -175,5 +186,53 @@ public extension ZYVisionDetectorVideoRecorder {
     func captureScan() {
         let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         self.zyvision_photoOutput.capturePhoto(with: photoSettings, delegate: self)
+    }
+}
+
+// MARK: Focus View
+public extension ZYVisionDetectorVideoRecorder {
+    var zyvision_focusPreviewView: UIView! {
+        return self.zyvision_visibleView
+    }
+//    public var zyvision_focousView: ZYVisionCameraFocusView! 
+    
+    func cameraFocusOnTapPreviewView(tapGes: UITapGestureRecognizer) {
+        try? self.zyvision_device.lockForConfiguration()
+        let point = tapGes.location(in: self.zyvision_previewView)
+        self.zyvision_device.focusPointOfInterest = point
+        self.zyvision_device.focusMode = .autoFocus
+        self.zyvision_device.unlockForConfiguration()
+    }
+    
+    func cameraFocusOnPinchPreviewView(pinchGes: UIPinchGestureRecognizer) {
+        if pinchGes.state == .began {
+            self.tmpzoom = self.videozoom
+        }else if pinchGes.state == .ended {
+            var newzoom = self.tmpzoom * pinchGes.scale
+            if newzoom < self.minZoom {
+                newzoom = self.minZoom
+            }
+            
+            if newzoom > self.maxZoom {
+                newzoom = self.maxZoom
+            }
+            self.videozoom = newzoom
+        } else if pinchGes.state == .changed {
+            var newzoom = self.tmpzoom * pinchGes.scale
+            print(" zoom = \(pinchGes.scale) =\(newzoom) ")
+            if newzoom < self.minZoom {
+                newzoom = self.minZoom
+            }
+            
+            if newzoom > self.maxZoom {
+                newzoom = self.maxZoom
+            }
+            
+            print(" after zoom = \(pinchGes.scale) =\(newzoom) ")
+            try? self.zyvision_device.lockForConfiguration()
+            self.zyvision_device.videoZoomFactor = newzoom
+            self.zyvision_device.unlockForConfiguration()
+            
+        }
     }
 }

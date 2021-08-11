@@ -10,6 +10,19 @@ import AVFoundation
 import ZYVisionDetector
 
 class CameraViewController: UIViewController, ZYVisionDetectorVideoRecorder {
+    var tmpzoom: CGFloat = 0
+    var videozoom: CGFloat = 0
+    
+    var zyvision_focusPreviewView: UIView! {
+        self.view
+    }
+    
+    var zyvision_focousView: ZYVisionCameraFocusView!
+    
+    var zyvision_visibleView: UIView! {
+        self.view
+    }
+    
     var zyvision_inputDevice: AVCaptureDeviceInput!
     
     var zyvision_device: AVCaptureDevice!
