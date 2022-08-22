@@ -18,7 +18,7 @@ public protocol ZYVisionDetectorVideoRecorder: AVCaptureVideoDataOutputSampleBuf
     var zyvision_device: AVCaptureDevice! { get set }
     var zyvision_photoSetting: AVCapturePhotoSettings! { get set }
     
-    var zyvision_photoOutput: AVCapturePhotoOutput! { get set }
+    var zyvision_photoOutput: AVCapturePhotoOutput? { get set }
     var zyvision_videoOutput: AVCaptureVideoDataOutput! { get set }
     
     /// 绘制矩形的layer
@@ -92,14 +92,16 @@ public extension ZYVisionDetectorVideoRecorder {
         self.zyvision_photoSetting = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         self.zyvision_photoSetting.flashMode = .auto
         
-        self.zyvision_photoOutput.photoSettingsForSceneMonitoring  = self.zyvision_photoSetting
+        self.zyvision_photoOutput?.photoSettingsForSceneMonitoring  = self.zyvision_photoSetting
 
         if(self.zyvision_session.canAddInput(self.zyvision_inputDevice!)) {
             self.zyvision_session.addInput(self.zyvision_inputDevice!)
         }
         
-        if self.zyvision_session.canAddOutput(self.zyvision_photoOutput) {
-            self.zyvision_session.addOutput(self.zyvision_photoOutput)
+        guard self.zyvision_photoOutput != nil else { return }
+        
+        if self.zyvision_session.canAddOutput(self.zyvision_photoOutput!) {
+            self.zyvision_session.addOutput(self.zyvision_photoOutput!)
         }
         
         if self.zyvision_session.canAddOutput(self.zyvision_videoOutput) {
@@ -185,7 +187,7 @@ public extension ZYVisionDetectorVideoRecorder {
     
     func captureScan() {
         let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        self.zyvision_photoOutput.capturePhoto(with: photoSettings, delegate: self)
+        self.zyvision_photoOutput?.capturePhoto(with: photoSettings, delegate: self)
     }
 }
 

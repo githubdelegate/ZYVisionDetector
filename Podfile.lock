@@ -1,5 +1,5 @@
 PODS:
-  - ZYVisionDetector (1.0.0)
+  - ZYVisionDetector (1.1.1)
 
 DEPENDENCIES:
   - ZYVisionDetector (from `./`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  ZYVisionDetector: 7b57eb5f43ace5f53a4628d8c91cd5f6ae8b56e9
+  ZYVisionDetector: 1526acb714844b3c575b80bfeb8a248d6ff04501
 
-PODFILE CHECKSUM: 9175830e9a142f27dc50359e73db4e9e9e7e17b1
+PODFILE CHECKSUM: 1770f6d7e82969fc75d0549ab00de6ac544dacb7
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
