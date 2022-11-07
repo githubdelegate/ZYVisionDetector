@@ -155,16 +155,12 @@ public extension ZYVisionDetectorVideoRecorder {
     }
     
     func zyvision_endSession() {
-        
-        DispatchQueue.global().async {
-            if self.zyvision_session == nil {
-                return
-            }
-            if self.zyvision_session.isRunning {
-                self.zyvision_session.stopRunning()
-            }
+        if self.zyvision_session == nil {
+            return
         }
-        
+        if self.zyvision_session.isRunning {
+            self.zyvision_session.stopRunning()
+        }
     }
     
     func captureScan() {
