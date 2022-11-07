@@ -144,43 +144,27 @@ public extension ZYVisionDetectorVideoRecorder {
     }
     
     func zyvision_beginSession() {
-        if Thread.current.isMainThread {
+        DispatchQueue.global().async {
             if self.zyvision_session == nil {
                 return
             }
             if self.zyvision_session.isRunning == false {
                 self.zyvision_session.startRunning()
             }
-        } else {
-            DispatchQueue.main.async {
-                if self.zyvision_session == nil {
-                    return
-                }
-                if self.zyvision_session.isRunning == false {
-                    self.zyvision_session.startRunning()
-                }
-            }
         }
     }
     
     func zyvision_endSession() {
-        if Thread.current.isMainThread {
+        
+        DispatchQueue.global().async {
             if self.zyvision_session == nil {
                 return
             }
             if self.zyvision_session.isRunning {
                 self.zyvision_session.stopRunning()
             }
-        } else {
-            DispatchQueue.main.async {
-                if self.zyvision_session == nil {
-                    return
-                }
-                if self.zyvision_session.isRunning {
-                    self.zyvision_session.stopRunning()
-                }
-            }
         }
+        
     }
     
     func captureScan() {
