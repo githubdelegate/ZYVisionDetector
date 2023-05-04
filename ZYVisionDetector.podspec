@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZYVisionDetector"
-  spec.version      = "1.1.4"
+  spec.version      = "1.1.5"
   spec.summary      = "ZYVisionDetector is a simple camera recorder and use Vision framework to detect retangle in video"
 
   # This description is used to generate tags and improve search results.
@@ -64,8 +64,10 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  spec.platform     = :ios
-  spec.platform     = :ios, "13.0"
+#  spec.platform     = :ios
+#  spec.platform     = :ios, "13.0"
+  spec.ios.deployment_target  = "13.0"
+  spec.osx.deployment_target = '11.0'
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
