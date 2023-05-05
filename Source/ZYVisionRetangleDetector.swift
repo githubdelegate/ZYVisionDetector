@@ -25,6 +25,7 @@ open class ZYVisionRetangleDetector {
     /// - Parameters:
     ///   - clipImage: 图片
     ///   - boxSize: imageview 大小
+    ///   - insets: 识别区域的内边距
     ///   - result: 识别结果 在imageview里面的  有8个点， 前4个是 比例值， 后4个是确切值
     public static func visionImage(clipImage: UIImage,boxSize: CGSize, insets: UIEdgeInsets = .zero, result: @escaping VisionRetangleDetectorResult) {
         
@@ -87,12 +88,25 @@ open class ZYVisionRetangleDetector {
     
     func vnretanglePoints2ZYQuadranglePoints(rectangle: VNRectangleObservation, boxSize: CGSize) -> ((CGPoint, CGPoint, CGPoint, CGPoint), (CGPoint, CGPoint, CGPoint, CGPoint)) {
         let translateTransform = CGAffineTransform.identity.scaledBy(x: boxSize.width, y: boxSize.height)
-        
-        let convertedTopLeft = CGPoint(x: rectangle.topLeft.x + self.insets.left, y: rectangle.topLeft.y + self.insets.top) .applying(translateTransform)
-        let convertedTopRight = CGPoint(x: rectangle.topRight.x - self.insets.right, y: rectangle.topRight.y + self.insets.top).applying(translateTransform)
-        let convertedBottomLeft = CGPoint(x: rectangle.bottomLeft.x + self.insets.left, y: rectangle.bottomLeft.y - self.insets.bottom).applying(translateTransform)
-        let convertedBottomRight = CGPoint(x: rectangle.bottomRight.x - self.insets.right, y: rectangle.bottomRight.y - self.insets.bottom).applying(translateTransform)
-        
+        print("vsion -> \(rectangle.topLeft)--\(rectangle.topRight)--\(rectangle.bottomLeft)--\(rectangle.bottomRight)")
+//        let convertedTopLeft = CGPoint(x: rectangle.topLeft.x + self.insets.left, y: rectangle.topLeft.y + self.insets.top) .applying(translateTransform)
+//        let convertedTopRight = CGPoint(x: rectangle.topRight.x - self.insets.right, y: rectangle.topRight.y + self.insets.top).applying(translateTransform)
+//        let convertedBottomLeft = CGPoint(x: rectangle.bottomLeft.x + self.insets.left, y: rectangle.bottomLeft.y - self.insets.bottom).applying(translateTransform)
+//        let convertedBottomRight = CGPoint(x: rectangle.bottomRight.x - self.insets.right, y: rectangle.bottomRight.y - self.insets.bottom).applying(translateTransform)
+
+
+        var convertedTopLeft = rectangle.topLeft.applying(translateTransform)
+        var convertedTopRight = rectangle.topRight.applying(translateTransform)
+        var convertedBottomLeft = rectangle.bottomLeft.applying(translateTransform)
+        var convertedBottomRight = rectangle.bottomRight.applying(translateTransform)
+
+        print("before inset = \(convertedTopLeft)--\(convertedTopRight)--\(convertedBottomLeft)--\(convertedBottomRight)")
+        convertedTopLeft = CGPoint(x: convertedTopLeft.x + self.insets.left, y: convertedTopLeft.y + self.insets.top)
+        convertedTopRight = CGPoint(x: convertedTopRight.x - self.insets.right, y: convertedTopRight.y + self.insets.top)
+        convertedBottomLeft = CGPoint(x: convertedBottomLeft.x + self.insets.left, y: convertedBottomLeft.y - self.insets.bottom)
+        convertedBottomRight = CGPoint(x: convertedBottomRight.x - self.insets.right, y: convertedBottomRight.y - self.insets.bottom)
+
+        print("aftet inset= \(convertedTopLeft)--\(convertedTopRight)--\(convertedBottomLeft)--\(convertedBottomRight)")
    
         let fliptrans = CGAffineTransform.identity.scaledBy(x: 1, y: -1)
         fliptrans.translatedBy(x: 0, y: boxSize.height)
